@@ -17,6 +17,7 @@
 		9FCB07D71D1267F300641C29 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FCB07D41D1267F300641C29 /* FBSDKCoreKit.framework */; };
 		9FCB07D81D1267F300641C29 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FCB07D51D1267F300641C29 /* FBSDKLoginKit.framework */; };
 		9FCB07D91D1267F300641C29 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FCB07D61D1267F300641C29 /* FBSDKShareKit.framework */; };
+		9FF9AF061D23B1ED007E75E4 /* AfterLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF9AF051D23B1ED007E75E4 /* AfterLoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		9FCB07D51D1267F300641C29 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		9FCB07D61D1267F300641C29 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		9FCB07DA1D12CDED00641C29 /* firebaseTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "firebaseTest-Bridging-Header.h"; sourceTree = "<group>"; };
+		9FF9AF051D23B1ED007E75E4 /* AfterLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfterLoginViewController.swift; sourceTree = "<group>"; };
 		BFC455008B0FBB90FAB5C55F /* Pods-firebaseTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firebaseTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-firebaseTest/Pods-firebaseTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +92,7 @@
 				9FCB079A1D11830A00641C29 /* Info.plist */,
 				9FCB07A41D11962200641C29 /* GoogleService-Info.plist */,
 				9FCB07DA1D12CDED00641C29 /* firebaseTest-Bridging-Header.h */,
+				9FF9AF051D23B1ED007E75E4 /* AfterLoginViewController.swift */,
 			);
 			path = firebaseTest;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FF9AF061D23B1ED007E75E4 /* AfterLoginViewController.swift in Sources */,
 				9FCB07911D11830A00641C29 /* ViewController.swift in Sources */,
 				9FCB078F1D11830A00641C29 /* AppDelegate.swift in Sources */,
 			);

@@ -33,17 +33,29 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         
         GIDSignIn.sharedInstance().uiDelegate = self
-     
+        
+        self.loginButtonFb.hidden = true
+        FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
+            if let user = user {
+                // User is signed in.
+                let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let afterLoginViewController: UIViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("AfterLoginView")
+                self.presentViewController(afterLoginViewController, animated: true, completion: nil)
+                
+                
+                
+            } else {
+                // No user is signed in.
+                self.loginButtonFb.readPermissions = ["public_profile", "email", "user_friends"]
+                self.loginButtonFb.delegate = self
+                self.loginButtonFb.hidden = false
+
+            }
+        }
         
 
-        
-//        if FBSDKAccessToken.currentAccessToken() != nil {
-//            // user already has access token
-//            print("User already logged in")
-//        } else {
-        self.loginButtonFb.readPermissions = ["public_profile", "email", "user_friends"]
-        self.loginButtonFb.delegate = self
-//    }
+   
+
     }
 
     override func didReceiveMemoryWarning() {
