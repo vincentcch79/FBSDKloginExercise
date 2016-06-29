@@ -80,7 +80,7 @@ class AfterLoginViewController: UIViewController {
         if FBSDKAccessToken.currentAccessToken() != nil {
             
             var activityItems: [AnyObject]?
-            activityItems = ["I am starting to use this app! Join me!"]
+            activityItems = ["I am starting to use this app! Join me!", userProfileImageView.image!]
             
         let activityController = UIActivityViewController(activityItems:
             activityItems!, applicationActivities: nil)
