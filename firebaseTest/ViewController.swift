@@ -20,6 +20,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var Password: UITextField!
     
 
+    @IBOutlet weak var activityLoginSpinner: UIActivityIndicatorView!
     
     
     @IBOutlet weak var loginButtonFb: FBSDKLoginButton!
@@ -90,6 +91,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
             
             if let user = user {
                 print("user : \(user.email) has been signed in successfully.")
+                self.activityLoginSpinner.startAnimating()
             }
         })
         
@@ -99,14 +101,30 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
 extension ViewController: FBSDKLoginButtonDelegate {
 
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        if let error = error {
-            print(error.localizedDescription)
-            return
-        }
+//        if let error = error {
+//            print(error.localizedDescription)
+//            return
+//        }
+//            self.loginButtonFb.hidden = true
         
+        
+        activityLoginSpinner.startAnimating()
+        
+        if error != nil {
+            
+            self.loginButtonFb.hidden = false
+            activityLoginSpinner.stopAnimating()
+            
+        } else if (result.isCancelled) {
+            
+            self.loginButtonFb.hidden = false
+            activityLoginSpinner.stopAnimating()
+            
+        } else {
+            
         let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
-        
-        FIRAuth.auth()?.signInWithCredential(credential, completion: nil)
+            FIRAuth.auth()?.signInWithCredential(credential, completion: nil)
+        }
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
@@ -119,33 +137,5 @@ extension ViewController: FBSDKLoginButtonDelegate {
     }
 }
     
-    
 
-
-
-
-
-//        FIRAuth.auth()?.createUserWithEmail(Username.text!, password: Password.text!, completion: {
-//             user, error in
-//            if error != nil {
-//                self.login()
-//            } else {
-//                print("User created")
-//                self.login()
-//            }
-//        })
-//    }
-//
-//    func login(){
-//        FIRAuth.auth()?.signInWithEmail(Username.text!, password: Password.text!, completion: {
-//
-//             user, error in
-//
-//            if error != nil{
-//                print("Incorrect!")
-//            } else {
-//                print("Heeeey!")
-//            }
-//        })
-//    }
 
